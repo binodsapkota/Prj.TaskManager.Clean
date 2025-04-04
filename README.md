@@ -5,21 +5,56 @@ It provides a structured, scalable, and maintainable architecture for building r
 
 ## 📌 Architecture Overview  
 
-This project is organized into four layers:  
-/TaskManagerApp 
-├── /Core → (Business Entities & Interfaces) 
-│ ├── /Entities → Domain models (Task, User, etc.) 
-│ ├── /Interfaces → Repository & Service contracts 
-│ ├── /DTOs → Data Transfer Objects 
-├── /Application → (Business Logic Layer) 
-│ ├── /Services → Implements use cases (TaskService, UserService) 
-│ ├── /Features → Handles commands & queries 
-├── /Infrastructure → (Database, External APIs, Third-Party Integrations) 
-│ ├── /Persistence → EF Core DbContext & Repository Implementations 
-│ ├── /Identity → Authentication & Authorization 
-├── /Presentation → (Controllers, Views, UI) 
-│ ├── /API → ASP.NET Core Web API Controllers 
-│ ├── /MVC → MVC Controllers & Views (if needed) 
-├── /Shared → (Common Utilities, Exception Handling) 
-├── /Tests → (Unit & Integration Tests) 
-├── TaskManager.sln → Solution file
+📂 Project Structure Explained
+
+1️⃣ Core (Domain Layer)
+Defines Entities (Task, User, etc.)
+
+Contains Interfaces for repositories and services
+
+No dependencies on other layers
+
+2️⃣ Application Layer
+Implements business logic
+
+Contains services and use cases
+
+Calls repositories but does NOT directly interact with the database
+
+3️⃣ Infrastructure Layer
+Implements database access (EF Core)
+
+Handles third-party services (Email, Payment, Logging, etc.)
+
+4️⃣ Presentation Layer (API & UI)
+Contains Controllers for handling HTTP requests
+
+Web API built using ASP.NET Core
+
+Could include an MVC UI
+
+## 🚀 Features  
+
+✅ **Clean Architecture** – Domain, Application, Infrastructure, and Presentation separation.  
+✅ **Entity Framework Core** – Code-first approach with repository pattern.  
+✅ **Dependency Injection** – Uses built-in DI container for loose coupling.  
+✅ **JWT Authentication** – Secured endpoints using JSON Web Tokens.  
+✅ **Unit Testing** – Separate test projects for service and repository testing.  
+
+---
+
+## 🛠️ Getting Started  
+
+### 🔹 Prerequisites  
+- [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)  
+- SQL Server (LocalDB or other instance)  
+- Visual Studio 2022 / VS Code  
+
+### 🔹 Installation Steps  
+
+#### 1️⃣ **Clone the Repository**
+```sh
+git clone https://github.com/yourusername/TaskManagerAPI.git
+cd TaskManagerAPI
+
+
